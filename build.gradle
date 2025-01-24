@@ -1,0 +1,41 @@
+plugins {
+    id 'java'
+}
+
+group 'com.example'
+version '1.0'
+
+repositories {
+    mavenCentral()
+    maven {
+        url = "https://hub.spigotmc.org/nexus/content/repositories/snapshots/"
+    }
+}
+
+dependencies {
+    implementation 'net.dv8tion:JDA:5.0.0-alpha.11'
+    compileOnly 'org.spigotmc:spigot-api:1.20.1-R0.1-SNAPSHOT'
+}
+
+tasks.withType(Jar) {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    manifest {
+        attributes(
+            'Main-Class': 'com.example.nineteen.nineteenPlugin'
+        )
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven { url 'https://repo.papermc.io/repository/maven-public/' }
+}
+
+dependencies {
+    implementation 'io.papermc.paper:paper-api:1.20-R0.1-SNAPSHOT'
+}
+
+
