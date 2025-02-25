@@ -1,6 +1,6 @@
 name: UHC
-version: 1.0
-main: com.example.UHC.UHCPlugin
-api-version: 1.20.1
+version: 1.0.5-test
+main: com.example.UHC.nineteen
+api-version: 1.20
 description: Minecraft UHC plugin
 author: discord-v
